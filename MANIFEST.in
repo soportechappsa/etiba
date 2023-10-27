@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include etiba *.css
+recursive-include etiba *.csv
+recursive-include etiba *.html
+recursive-include etiba *.ico
+recursive-include etiba *.js
+recursive-include etiba *.json
+recursive-include etiba *.md
+recursive-include etiba *.png
+recursive-include etiba *.py
+recursive-include etiba *.svg
+recursive-include etiba *.txt
+recursive-exclude etiba *.pyc
