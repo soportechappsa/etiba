@@ -1,0 +1,69 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"MVhqloqCqa\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">eTIBA</span>\",\"col\":12}},{\"id\":\"iqGJtp61x2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CORTE\",\"col\":3}},{\"id\":\"CNnhcpEe9h\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IMPRESION\",\"col\":3}},{\"id\":\"kyGYt8KMuF\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"EXTRUDER\",\"col\":3}},{\"id\":\"bL4G37YVRg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"LAMINACION\",\"col\":3}},{\"id\":\"6Wj2yZJ0li\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"SLITTER\",\"col\":3}}]",
+ "creation": "2024-01-17 16:09:56.930888",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "onboarding",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "eTIBA",
+ "links": [],
+ "modified": "2024-01-22 10:47:37.061047",
+ "modified_by": "Administrator",
+ "module": "eTIBA",
+ "name": "eTIBA",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 26.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "CORTE",
+   "link_to": "Captura de pesos",
+   "stats_filter": "{\"idproceso\":[\"=\",\"1\"]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Pink",
+   "doc_view": "List",
+   "label": "IMPRESION",
+   "link_to": "Captura de pesos",
+   "stats_filter": "{\"idproceso\":[\"=\",\"3\"]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "doc_view": "List",
+   "label": "EXTRUDER",
+   "link_to": "Captura de pesos",
+   "stats_filter": "{\"idproceso\":[\"=\",\"2\"]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "LAMINACION",
+   "link_to": "Captura de pesos",
+   "stats_filter": "{\"idproceso\":[\"=\",\"4\"]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Cyan",
+   "doc_view": "List",
+   "label": "SLITTER",
+   "link_to": "Captura de pesos",
+   "stats_filter": "{\"idproceso\":[\"=\",\"5\"]}",
+   "type": "DocType"
+  }
+ ],
+ "title": "eTIBA"
+}
