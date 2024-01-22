@@ -1,0 +1,310 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:idorden",
+ "creation": "2023-10-27 12:12:01.289762",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "idorden",
+  "numeroordensap",
+  "nombrecliente",
+  "producto",
+  "direccion",
+  "numerolote",
+  "fardounidad",
+  "fardonumero",
+  "codigocortador",
+  "cortadoranumero",
+  "fechacreacionorden",
+  "fechaentrega",
+  "fechacreacionsap",
+  "fechacierreorden",
+  "fechasuspendida",
+  "fechaeditada",
+  "fechareabierta",
+  "ip",
+  "idestado",
+  "idestatus",
+  "idusuario",
+  "idproceso",
+  "nopedidointerno",
+  "filtro",
+  "no",
+  "mes",
+  "semana",
+  "fechaingreso",
+  "ordencompra",
+  "op",
+  "correlativo",
+  "slpname",
+  "cardname",
+  "descripcion",
+  "lbs",
+  "docduedate",
+  "diasent",
+  "catreq",
+  "sweight",
+  "unidad",
+  "cardcode",
+  "itemcode",
+  "tipopedido",
+  "tara"
+ ],
+ "fields": [
+  {
+   "fieldname": "nombrecliente",
+   "fieldtype": "Data",
+   "label": "nombrecliente"
+  },
+  {
+   "fieldname": "producto",
+   "fieldtype": "Data",
+   "label": "producto"
+  },
+  {
+   "fieldname": "direccion",
+   "fieldtype": "Data",
+   "label": "direccion"
+  },
+  {
+   "fieldname": "numerolote",
+   "fieldtype": "Data",
+   "label": "numerolote"
+  },
+  {
+   "fieldname": "fardounidad",
+   "fieldtype": "Data",
+   "label": "fardounidad"
+  },
+  {
+   "fieldname": "cortadoranumero",
+   "fieldtype": "Data",
+   "label": "cortadoranumero"
+  },
+  {
+   "fieldname": "fechacreacionorden",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "fechacreacionorden"
+  },
+  {
+   "fieldname": "fechaentrega",
+   "fieldtype": "Datetime",
+   "label": "fechaentrega"
+  },
+  {
+   "fieldname": "fechacreacionsap",
+   "fieldtype": "Datetime",
+   "label": "fechacreacionsap"
+  },
+  {
+   "fieldname": "fechacierreorden",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "fechacierreorden"
+  },
+  {
+   "fieldname": "fechasuspendida",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "fechasuspendida"
+  },
+  {
+   "fieldname": "fechaeditada",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "fechaeditada"
+  },
+  {
+   "fieldname": "fechareabierta",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "fechareabierta"
+  },
+  {
+   "fieldname": "ip",
+   "fieldtype": "Data",
+   "label": "ip"
+  },
+  {
+   "fieldname": "idestado",
+   "fieldtype": "Data",
+   "label": "idestado"
+  },
+  {
+   "fieldname": "idestatus",
+   "fieldtype": "Data",
+   "label": "idestatus"
+  },
+  {
+   "fieldname": "idusuario",
+   "fieldtype": "Data",
+   "label": "idusuario"
+  },
+  {
+   "fieldname": "idproceso",
+   "fieldtype": "Data",
+   "label": "idproceso"
+  },
+  {
+   "fieldname": "nopedidointerno",
+   "fieldtype": "Data",
+   "label": "nopedidointerno"
+  },
+  {
+   "fieldname": "filtro",
+   "fieldtype": "Data",
+   "label": "filtro"
+  },
+  {
+   "fieldname": "no",
+   "fieldtype": "Data",
+   "label": "no"
+  },
+  {
+   "fieldname": "mes",
+   "fieldtype": "Data",
+   "label": "mes"
+  },
+  {
+   "fieldname": "semana",
+   "fieldtype": "Data",
+   "label": "semana"
+  },
+  {
+   "fieldname": "fechaingreso",
+   "fieldtype": "Date",
+   "label": "fechaingreso"
+  },
+  {
+   "fieldname": "ordencompra",
+   "fieldtype": "Data",
+   "label": "ordencompra"
+  },
+  {
+   "fieldname": "op",
+   "fieldtype": "Data",
+   "label": "op"
+  },
+  {
+   "fieldname": "correlativo",
+   "fieldtype": "Data",
+   "label": "correlativo"
+  },
+  {
+   "fieldname": "slpname",
+   "fieldtype": "Data",
+   "label": "slpname"
+  },
+  {
+   "fieldname": "cardname",
+   "fieldtype": "Data",
+   "label": "cardname"
+  },
+  {
+   "fieldname": "descripcion",
+   "fieldtype": "Data",
+   "label": "descripcion"
+  },
+  {
+   "fieldname": "lbs",
+   "fieldtype": "Data",
+   "label": "lbs"
+  },
+  {
+   "fieldname": "docduedate",
+   "fieldtype": "Date",
+   "label": "docduedate"
+  },
+  {
+   "fieldname": "diasent",
+   "fieldtype": "Data",
+   "label": "diasent"
+  },
+  {
+   "fieldname": "catreq",
+   "fieldtype": "Data",
+   "label": "catreq"
+  },
+  {
+   "fieldname": "sweight",
+   "fieldtype": "Data",
+   "label": "sweight"
+  },
+  {
+   "fieldname": "unidad",
+   "fieldtype": "Data",
+   "label": "unidad"
+  },
+  {
+   "fieldname": "cardcode",
+   "fieldtype": "Data",
+   "label": "cardcode"
+  },
+  {
+   "fieldname": "itemcode",
+   "fieldtype": "Data",
+   "label": "itemcode"
+  },
+  {
+   "fieldname": "tipopedido",
+   "fieldtype": "Data",
+   "label": "tipopedido"
+  },
+  {
+   "fieldname": "tara",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "tara"
+  },
+  {
+   "fieldname": "numeroordensap",
+   "fieldtype": "Data",
+   "label": "numeroorden"
+  },
+  {
+   "fieldname": "fardonumero",
+   "fieldtype": "Data",
+   "label": "fardonumero"
+  },
+  {
+   "fieldname": "codigocortador",
+   "fieldtype": "Data",
+   "label": "codigocortador"
+  },
+  {
+   "fieldname": "idorden",
+   "fieldtype": "Data",
+   "label": "idorden",
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-10-30 14:24:19.350559",
+ "modified_by": "Administrator",
+ "module": "eTIBA",
+ "name": "Ordenes",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

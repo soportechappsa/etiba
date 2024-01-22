@@ -1,0 +1,117 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2023-12-20 14:50:03.271748",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "idcordenadasimpresora",
+  "tipo",
+  "x",
+  "y",
+  "font",
+  "r",
+  "g",
+  "b",
+  "rotation",
+  "text",
+  "impresora_idimpresora",
+  "nombre",
+  "descripcion"
+ ],
+ "fields": [
+  {
+   "fieldname": "idcordenadasimpresora",
+   "fieldtype": "Data",
+   "label": "idcordenadasimpresora"
+  },
+  {
+   "fieldname": "tipo",
+   "fieldtype": "Data",
+   "label": "tipo"
+  },
+  {
+   "fieldname": "x",
+   "fieldtype": "Int",
+   "label": "x"
+  },
+  {
+   "fieldname": "y",
+   "fieldtype": "Int",
+   "label": "y"
+  },
+  {
+   "fieldname": "font",
+   "fieldtype": "Data",
+   "label": "font"
+  },
+  {
+   "fieldname": "r",
+   "fieldtype": "Int",
+   "label": "r"
+  },
+  {
+   "fieldname": "g",
+   "fieldtype": "Int",
+   "label": "g"
+  },
+  {
+   "fieldname": "b",
+   "fieldtype": "Int",
+   "label": "b"
+  },
+  {
+   "fieldname": "rotation",
+   "fieldtype": "Int",
+   "label": "rotation"
+  },
+  {
+   "fieldname": "text",
+   "fieldtype": "Data",
+   "label": "text",
+   "length": 200
+  },
+  {
+   "fieldname": "impresora_idimpresora",
+   "fieldtype": "Int",
+   "label": "impresora_idimpresora"
+  },
+  {
+   "fieldname": "nombre",
+   "fieldtype": "Data",
+   "label": "nombre"
+  },
+  {
+   "fieldname": "descripcion",
+   "fieldtype": "Data",
+   "label": "descripcion"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-12-20 16:27:21.905605",
+ "modified_by": "Administrator",
+ "module": "eTIBA",
+ "name": "cordenadaimpresora",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

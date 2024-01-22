@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2023-11-06 10:59:23.062958",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "linea",
+  "bobina",
+  "fecha_ingreso",
+  "id_operador",
+  "operador",
+  "peso",
+  "peso_tara",
+  "peso_neto",
+  "uom",
+  "flg"
+ ],
+ "fields": [
+  {
+   "fieldname": "linea",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Linea"
+  },
+  {
+   "fieldname": "bobina",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Bobina",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fecha_ingreso",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Fecha Ingreso",
+   "read_only": 1
+  },
+  {
+   "fieldname": "peso",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Peso",
+   "read_only": 1
+  },
+  {
+   "fieldname": "peso_tara",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Peso Tara",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "flg",
+   "fieldtype": "Check",
+   "label": "es manual?",
+   "read_only": 1
+  },
+  {
+   "fieldname": "id_operador",
+   "fieldtype": "Data",
+   "label": "Id",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operador",
+   "fieldtype": "Data",
+   "label": "Operador"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "uom",
+   "read_only": 1
+  },
+  {
+   "fieldname": "peso_neto",
+   "fieldtype": "Float",
+   "label": "Peso Neto",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-05 08:54:53.266373",
+ "modified_by": "Administrator",
+ "module": "eTIBA",
+ "name": "Detalle",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "valida_guardar": 1
+}

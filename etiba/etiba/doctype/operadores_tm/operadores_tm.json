@@ -1,0 +1,39 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-16 16:58:59.286442",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "operador",
+  "nombre_empleado"
+ ],
+ "fields": [
+  {
+   "fieldname": "operador",
+   "fieldtype": "Link",
+   "label": "Operador",
+   "options": "Operador"
+  },
+  {
+   "fetch_from": "operador.nombre",
+   "fieldname": "nombre_empleado",
+   "fieldtype": "Data",
+   "label": "Nombre Empleado"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-16 16:59:08.240026",
+ "modified_by": "Administrator",
+ "module": "eTIBA",
+ "name": "Operadores TM",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

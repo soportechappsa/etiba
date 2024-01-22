@@ -1,0 +1,81 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2023-10-30 16:53:49.035688",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "idoperador",
+  "nombre",
+  "descripcion",
+  "fechaalta",
+  "fechabaja",
+  "idestado",
+  "idproceso"
+ ],
+ "fields": [
+  {
+   "fieldname": "idoperador",
+   "fieldtype": "Data",
+   "label": "idoperador"
+  },
+  {
+   "fieldname": "nombre",
+   "fieldtype": "Data",
+   "label": "nombre"
+  },
+  {
+   "fieldname": "descripcion",
+   "fieldtype": "Data",
+   "label": "descripcion"
+  },
+  {
+   "fieldname": "fechaalta",
+   "fieldtype": "Datetime",
+   "label": "fechaalta"
+  },
+  {
+   "fieldname": "fechabaja",
+   "fieldtype": "Datetime",
+   "label": "fechabaja"
+  },
+  {
+   "fieldname": "idestado",
+   "fieldtype": "Data",
+   "label": "idestado"
+  },
+  {
+   "fieldname": "idproceso",
+   "fieldtype": "Data",
+   "label": "idproceso"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-18 10:00:29.378828",
+ "modified_by": "Administrator",
+ "module": "eTIBA",
+ "name": "Operador",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

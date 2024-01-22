@@ -1,0 +1,180 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:TiempoMuerto-{#####}",
+ "creation": "2024-01-16 16:41:03.718737",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "falla",
+  "descripcion",
+  "column_break_kaytp",
+  "turno",
+  "dia",
+  "noche",
+  "column_break_lipfh",
+  "tiempo_de_falla",
+  "fecha_inicio",
+  "fecha_fin",
+  "column_break_si59d",
+  "horas",
+  "tiempo_en_horas",
+  "section_break_pufwq",
+  "ordenes",
+  "section_break_tga4w",
+  "areas",
+  "section_break_wi9mv",
+  "maquinas",
+  "empleados_section",
+  "operadores"
+ ],
+ "fields": [
+  {
+   "fieldname": "falla",
+   "fieldtype": "Link",
+   "label": "Falla",
+   "options": "Fallas"
+  },
+  {
+   "fetch_from": "falla.nombre",
+   "fieldname": "descripcion",
+   "fieldtype": "Data",
+   "label": "Descripcion",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kaytp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "turno",
+   "fieldtype": "Heading",
+   "label": "Turno"
+  },
+  {
+   "default": "0",
+   "fieldname": "dia",
+   "fieldtype": "Check",
+   "label": "Dia"
+  },
+  {
+   "default": "0",
+   "fieldname": "noche",
+   "fieldtype": "Check",
+   "label": "Noche"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_tga4w",
+   "fieldtype": "Section Break",
+   "label": "\u00c1reas Afectadas"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_wi9mv",
+   "fieldtype": "Section Break",
+   "label": "Maquinas Utilizadas"
+  },
+  {
+   "fieldname": "operadores",
+   "fieldtype": "Table",
+   "label": "Operadores",
+   "options": "Operadores TM"
+  },
+  {
+   "fieldname": "areas",
+   "fieldtype": "Table",
+   "label": "Area",
+   "options": "Areas TM"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_pufwq",
+   "fieldtype": "Section Break",
+   "label": "Ordenes Afectadas"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "empleados_section",
+   "fieldtype": "Section Break",
+   "label": "Operadores Afectados"
+  },
+  {
+   "fieldname": "maquinas",
+   "fieldtype": "Table",
+   "label": "Maquinas",
+   "options": "Maquinas TM"
+  },
+  {
+   "fieldname": "fecha_fin",
+   "fieldtype": "Datetime",
+   "label": "Fecha Fin"
+  },
+  {
+   "fieldname": "column_break_lipfh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tiempo_de_falla",
+   "fieldtype": "Heading",
+   "label": "Tiempo de falla"
+  },
+  {
+   "fieldname": "column_break_si59d",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "horas",
+   "fieldtype": "Heading",
+   "hidden": 1,
+   "label": "Horas"
+  },
+  {
+   "fieldname": "tiempo_en_horas",
+   "fieldtype": "Float",
+   "label": "Tiempo",
+   "precision": "1"
+  },
+  {
+   "fieldname": "ordenes",
+   "fieldtype": "Table",
+   "label": "Ordenes",
+   "options": "Ordenes TM"
+  },
+  {
+   "fetch_if_empty": 1,
+   "fieldname": "fecha_inicio",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Fecha Inicio",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-19 07:56:04.123735",
+ "modified_by": "Administrator",
+ "module": "eTIBA",
+ "name": "Tiempos Muertos",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

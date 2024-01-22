@@ -1,0 +1,560 @@
+{
+ "actions": [],
+ "autoname": "format:{orden}-{codigo_producto}-{codigo_cliente}",
+ "creation": "2023-10-27 08:58:01.415469",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "amended_from",
+  "html",
+  "ordenes_section",
+  "orden",
+  "cliente",
+  "codigo_cliente",
+  "unidades_por_paquete",
+  "unidad",
+  "unidad_de_medida",
+  "column_break_isery",
+  "producto",
+  "codigo_producto",
+  "lote",
+  "fecha_creacion",
+  "maquina",
+  "idproceso",
+  "captura_peso_tab",
+  "peso",
+  "column_break_smjkl",
+  "uom",
+  "column_break_4bhkn",
+  "tara",
+  "column_break_geuwo",
+  "operador",
+  "nombre_operador",
+  "section_break_wqowo",
+  "peso_tara",
+  "column_break_pfwvo",
+  "reimprimir",
+  "column_break_45cv3",
+  "insertar_peso_manualmente",
+  "column_break_l9kxc",
+  "insertar",
+  "section_break_isa7f",
+  "detalle",
+  "section_break_gnbsx",
+  "bobinas",
+  "column_break_iefou",
+  "total_bruto",
+  "column_break_flwcm",
+  "total_tara",
+  "column_break_zriec",
+  "total_neto",
+  "detalle_desperdicio_tab",
+  "des_peso",
+  "column_break_lg0tb",
+  "des_uom",
+  "column_break_0doff",
+  "des_tara",
+  "column_break_f1qmq",
+  "des_operador",
+  "nombre_des_operador",
+  "tipo_desperdicio",
+  "section_break_jjs24",
+  "des_peso_tara",
+  "column_break_oxk48",
+  "des_reimprimir",
+  "column_break_ol1jw",
+  "des_insertar_peso_manualmente",
+  "column_break_tptsj",
+  "des_insertar",
+  "section_break_ncjq7",
+  "desperdicio",
+  "section_break_makxb",
+  "des_bobinas",
+  "column_break_hfgvt",
+  "des_total_bruto",
+  "column_break_p5mmv",
+  "des_total_tara",
+  "column_break_pyp1y",
+  "des_total_neto",
+  "estados_tab",
+  "estado",
+  "nombre_estado",
+  "ultimabobina",
+  "column_break_b9vnz",
+  "subestado",
+  "ultimabobinadesperdicio"
+ ],
+ "fields": [
+  {
+   "default": "1",
+   "fieldname": "peso",
+   "fieldtype": "Data",
+   "label": "Peso"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Captura de pesos",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_geuwo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "uom",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ordenes_section",
+   "fieldtype": "Section Break",
+   "label": "Ordenes"
+  },
+  {
+   "fieldname": "orden",
+   "fieldtype": "Select",
+   "label": "Orden"
+  },
+  {
+   "fetch_from": "orden.cardname",
+   "fieldname": "cliente",
+   "fieldtype": "Data",
+   "label": "Cliente"
+  },
+  {
+   "fetch_from": "orden.cardcode",
+   "fieldname": "codigo_cliente",
+   "fieldtype": "Data",
+   "label": "Codigo Cliente"
+  },
+  {
+   "fieldname": "unidad",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Unidad"
+  },
+  {
+   "fieldname": "column_break_isery",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "orden.descripcion",
+   "fieldname": "producto",
+   "fieldtype": "Data",
+   "label": "Producto"
+  },
+  {
+   "fetch_from": "orden.producto",
+   "fieldname": "codigo_producto",
+   "fieldtype": "Data",
+   "label": "Codigo Producto"
+  },
+  {
+   "fetch_from": "orden.fechacreacionsap",
+   "fieldname": "fecha_creacion",
+   "fieldtype": "Data",
+   "label": "Fecha Creacion"
+  },
+  {
+   "bold": 1,
+   "fieldname": "operador",
+   "fieldtype": "Link",
+   "label": "Operador",
+   "options": "Operador",
+   "search_index": 1,
+   "sort_options": 1
+  },
+  {
+   "fieldname": "unidad_de_medida",
+   "fieldtype": "Data",
+   "label": "Unidad de medida",
+   "read_only": 1
+  },
+  {
+   "fieldname": "captura_peso_tab",
+   "fieldtype": "Tab Break",
+   "label": "Captura Peso"
+  },
+  {
+   "fieldname": "peso_tara",
+   "fieldtype": "Button",
+   "label": "Peso Tara"
+  },
+  {
+   "fieldname": "column_break_smjkl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "insertar_peso_manualmente",
+   "fieldtype": "Button",
+   "label": "Insertar Peso Manualmente"
+  },
+  {
+   "fieldname": "column_break_45cv3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reimprimir",
+   "fieldtype": "Button",
+   "label": "Reimprimir"
+  },
+  {
+   "fieldname": "column_break_l9kxc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "insertar",
+   "fieldtype": "Button",
+   "label": "Insertar"
+  },
+  {
+   "fieldname": "section_break_isa7f",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "detalle_desperdicio_tab",
+   "fieldtype": "Tab Break",
+   "label": "Detalle Desperdicio"
+  },
+  {
+   "fieldname": "desperdicio",
+   "fieldtype": "Table",
+   "label": "Desperdicio",
+   "options": "Desperdicio"
+  },
+  {
+   "bold": 1,
+   "default": "0",
+   "fieldname": "estado",
+   "fieldtype": "Data",
+   "label": "Estado",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "subestado",
+   "fieldtype": "Data",
+   "label": "SubEstado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "unidades_por_paquete",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Unidades por paquete"
+  },
+  {
+   "fieldname": "section_break_wqowo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_4bhkn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_pfwvo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.0",
+   "fieldname": "tara",
+   "fieldtype": "Float",
+   "label": "Tara"
+  },
+  {
+   "fieldname": "detalle",
+   "fieldtype": "Table",
+   "label": "Detalle",
+   "options": "Detalle"
+  },
+  {
+   "fieldname": "des_peso",
+   "fieldtype": "Data",
+   "label": "Peso",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_lg0tb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "des_uom",
+   "fieldtype": "Data",
+   "label": "uom",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_0doff",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0.0",
+   "fieldname": "des_tara",
+   "fieldtype": "Float",
+   "label": "Tara"
+  },
+  {
+   "fieldname": "column_break_f1qmq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "des_operador",
+   "fieldtype": "Link",
+   "label": "Operador",
+   "options": "Operador"
+  },
+  {
+   "fieldname": "section_break_jjs24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "des_insertar_peso_manualmente",
+   "fieldtype": "Button",
+   "label": "Insertar Peso Manualmente"
+  },
+  {
+   "fieldname": "column_break_oxk48",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "des_insertar",
+   "fieldtype": "Button",
+   "label": "Insertar"
+  },
+  {
+   "fieldname": "column_break_ol1jw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_tptsj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "des_reimprimir",
+   "fieldtype": "Button",
+   "label": "Reimprimir"
+  },
+  {
+   "fieldname": "section_break_ncjq7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "des_peso_tara",
+   "fieldtype": "Button",
+   "label": "Peso Tara"
+  },
+  {
+   "fieldname": "html",
+   "fieldtype": "HTML",
+   "label": "html"
+  },
+  {
+   "default": "2",
+   "fetch_from": "orden.idproceso",
+   "fieldname": "idproceso",
+   "fieldtype": "Data",
+   "label": "idproceso"
+  },
+  {
+   "fieldname": "column_break_b9vnz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_makxb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tipo_desperdicio",
+   "fieldtype": "Link",
+   "label": "Tipo de desperdicio",
+   "options": "Tipo Desperdicio"
+  },
+  {
+   "fetch_from": "operador.nombre",
+   "fieldname": "nombre_operador",
+   "fieldtype": "Data",
+   "label": "nombre del operador",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "des_operador.nombre",
+   "fieldname": "nombre_des_operador",
+   "fieldtype": "Data",
+   "label": "nombre del operador",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lote",
+   "fieldtype": "Data",
+   "label": "Lote"
+  },
+  {
+   "fieldname": "total_bruto",
+   "fieldtype": "Float",
+   "label": "total bruto",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_tara",
+   "fieldtype": "Float",
+   "label": "total tara",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bobinas",
+   "fieldtype": "Int",
+   "label": "bobinas",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_iefou",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_flwcm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_gnbsx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_zriec",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_neto",
+   "fieldtype": "Float",
+   "label": "total neto",
+   "read_only": 1
+  },
+  {
+   "fieldname": "estados_tab",
+   "fieldtype": "Tab Break",
+   "label": "Estados"
+  },
+  {
+   "default": "0",
+   "fieldname": "ultimabobina",
+   "fieldtype": "Int",
+   "label": "UltimaBobina",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "ultimabobinadesperdicio",
+   "fieldtype": "Int",
+   "label": "UltimaBobinaDesperdicio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "des_bobinas",
+   "fieldtype": "Int",
+   "label": "Bobinas",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_hfgvt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "des_total_bruto",
+   "fieldtype": "Float",
+   "label": "Total Bruto",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_p5mmv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "des_total_tara",
+   "fieldtype": "Float",
+   "label": "Total Tara",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_pyp1y",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "des_total_neto",
+   "fieldtype": "Float",
+   "label": "Total Neto",
+   "read_only": 1
+  },
+  {
+   "fieldname": "maquina",
+   "fieldtype": "Link",
+   "label": "Maquina",
+   "options": "Maquinas"
+  },
+  {
+   "fieldname": "nombre_estado",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Nombre del estado",
+   "options": "Abierta\nCerrada\nSuspendida",
+   "read_only": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-18 16:32:22.323833",
+ "modified_by": "Administrator",
+ "module": "eTIBA",
+ "name": "Captura de pesos",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Supervisor eTIBA",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrador eTIBA",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "valida_guardar": 1
+}

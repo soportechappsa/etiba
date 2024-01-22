@@ -1,0 +1,109 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2023-10-30 13:48:01.944345",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "des_linea",
+  "des_bobina",
+  "des_fecha_ingreso",
+  "id_operador",
+  "des_operador",
+  "des_peso",
+  "des_peso_tara",
+  "des_peso_neto",
+  "uom",
+  "desperdicio",
+  "flg"
+ ],
+ "fields": [
+  {
+   "fieldname": "des_linea",
+   "fieldtype": "Data",
+   "label": "Linea"
+  },
+  {
+   "fieldname": "des_bobina",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Bobina",
+   "read_only": 1
+  },
+  {
+   "fieldname": "des_fecha_ingreso",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Fecha Ingreso",
+   "read_only": 1
+  },
+  {
+   "fieldname": "des_peso",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Peso",
+   "read_only": 1
+  },
+  {
+   "fieldname": "des_peso_tara",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Peso Tara",
+   "read_only": 1
+  },
+  {
+   "fieldname": "des_operador",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Operador",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "flg",
+   "fieldtype": "Check",
+   "label": "es manual?",
+   "read_only": 1
+  },
+  {
+   "fieldname": "desperdicio",
+   "fieldtype": "Data",
+   "label": "Desperdicio",
+   "read_only": 1
+  },
+  {
+   "fieldname": "id_operador",
+   "fieldtype": "Data",
+   "label": "Id",
+   "length": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Data",
+   "label": "uom",
+   "read_only": 1
+  },
+  {
+   "fieldname": "des_peso_neto",
+   "fieldtype": "Float",
+   "label": "Peso Neto",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-05 08:55:15.194824",
+ "modified_by": "Administrator",
+ "module": "eTIBA",
+ "name": "Desperdicio",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "valida_guardar": 1
+}
