@@ -1,20 +1,23 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{descripcion}",
  "creation": "2023-10-27 08:54:54.497949",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "descripcion",
   "tiempo",
+  "tiempo_captura_peso",
   "amended_from"
  ],
  "fields": [
   {
    "fieldname": "tiempo",
-   "fieldtype": "Duration",
-   "label": "TIempo"
+   "fieldtype": "Int",
+   "label": "TIempo de espera(ms)"
   },
   {
    "fieldname": "amended_from",
@@ -24,15 +27,26 @@
    "options": "Parametrizaciones etiba",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "tiempo_captura_peso",
+   "fieldtype": "Int",
+   "label": "Tiempo para captura peso(ms)"
+  },
+  {
+   "fieldname": "descripcion",
+   "fieldtype": "Data",
+   "label": "Descripcion"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-10-27 09:03:17.889142",
+ "modified": "2024-02-08 16:27:17.457553",
  "modified_by": "Administrator",
  "module": "eTIBA",
  "name": "Parametrizaciones etiba",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

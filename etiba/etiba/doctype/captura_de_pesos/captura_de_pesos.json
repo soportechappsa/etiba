@@ -8,21 +8,27 @@
  "engine": "InnoDB",
  "field_order": [
   "amended_from",
-  "html",
+  "area",
+  "column_break_widwc",
+  "nombre_area",
   "ordenes_section",
   "orden",
   "cliente",
   "codigo_cliente",
+  "fecha_creacion",
+  "cantidad",
   "unidades_por_paquete",
   "unidad",
   "unidad_de_medida",
+  "maquina",
+  "nombre_maquina",
   "column_break_isery",
   "producto",
   "codigo_producto",
   "lote",
-  "fecha_creacion",
-  "maquina",
+  "fecha_de_vencimiento",
   "idproceso",
+  "porcentaje_permitido",
   "captura_peso_tab",
   "peso",
   "column_break_smjkl",
@@ -34,6 +40,8 @@
   "nombre_operador",
   "section_break_wqowo",
   "peso_tara",
+  "column_break_2uqj9",
+  "imprimir",
   "column_break_pfwvo",
   "reimprimir",
   "column_break_45cv3",
@@ -50,6 +58,7 @@
   "total_tara",
   "column_break_zriec",
   "total_neto",
+  "column_break_ianyo",
   "detalle_desperdicio_tab",
   "des_peso",
   "column_break_lg0tb",
@@ -63,6 +72,8 @@
   "section_break_jjs24",
   "des_peso_tara",
   "column_break_oxk48",
+  "des_imprimir",
+  "column_break_zgfpq",
   "des_reimprimir",
   "column_break_ol1jw",
   "des_insertar_peso_manualmente",
@@ -88,10 +99,10 @@
  ],
  "fields": [
   {
-   "default": "1",
    "fieldname": "peso",
    "fieldtype": "Data",
-   "label": "Peso"
+   "label": "Peso",
+   "read_only": 1
   },
   {
    "fieldname": "amended_from",
@@ -120,24 +131,27 @@
   {
    "fieldname": "orden",
    "fieldtype": "Select",
-   "label": "Orden"
+   "label": "Orden",
+   "set_only_once": 1
   },
   {
    "fetch_from": "orden.cardname",
    "fieldname": "cliente",
    "fieldtype": "Data",
-   "label": "Cliente"
+   "label": "Cliente",
+   "read_only": 1
   },
   {
    "fetch_from": "orden.cardcode",
    "fieldname": "codigo_cliente",
    "fieldtype": "Data",
-   "label": "Codigo Cliente"
+   "label": "Codigo Cliente",
+   "read_only": 1
   },
   {
    "fieldname": "unidad",
    "fieldtype": "Int",
-   "in_list_view": 1,
+   "hidden": 1,
    "label": "Unidad"
   },
   {
@@ -148,26 +162,29 @@
    "fetch_from": "orden.descripcion",
    "fieldname": "producto",
    "fieldtype": "Data",
-   "label": "Producto"
+   "label": "Producto",
+   "read_only": 1
   },
   {
    "fetch_from": "orden.producto",
    "fieldname": "codigo_producto",
    "fieldtype": "Data",
-   "label": "Codigo Producto"
+   "label": "Codigo Producto",
+   "read_only": 1
   },
   {
    "fetch_from": "orden.fechacreacionsap",
    "fieldname": "fecha_creacion",
    "fieldtype": "Data",
-   "label": "Fecha Creacion"
+   "label": "Fecha Creacion",
+   "read_only": 1
   },
   {
    "bold": 1,
    "fieldname": "operador",
    "fieldtype": "Link",
-   "label": "Operador",
-   "options": "Operador",
+   "label": "Empleado",
+   "options": "Empleado",
    "search_index": 1,
    "sort_options": 1
   },
@@ -247,7 +264,7 @@
   {
    "fieldname": "unidades_por_paquete",
    "fieldtype": "Int",
-   "in_list_view": 1,
+   "hidden": 1,
    "label": "Unidades por paquete"
   },
   {
@@ -308,7 +325,7 @@
    "fieldname": "des_operador",
    "fieldtype": "Link",
    "label": "Operador",
-   "options": "Operador"
+   "options": "Empleado"
   },
   {
    "fieldname": "section_break_jjs24",
@@ -351,16 +368,11 @@
    "label": "Peso Tara"
   },
   {
-   "fieldname": "html",
-   "fieldtype": "HTML",
-   "label": "html"
-  },
-  {
-   "default": "2",
    "fetch_from": "orden.idproceso",
    "fieldname": "idproceso",
    "fieldtype": "Data",
-   "label": "idproceso"
+   "label": "Proceso",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_b9vnz",
@@ -380,7 +392,7 @@
    "fetch_from": "operador.nombre",
    "fieldname": "nombre_operador",
    "fieldtype": "Data",
-   "label": "nombre del operador",
+   "label": "nombre del empleado",
    "read_only": 1
   },
   {
@@ -393,7 +405,8 @@
   {
    "fieldname": "lote",
    "fieldtype": "Data",
-   "label": "Lote"
+   "label": "Lote",
+   "read_only": 1
   },
   {
    "fieldname": "total_bruto",
@@ -494,7 +507,7 @@
    "fieldname": "maquina",
    "fieldtype": "Link",
    "label": "Maquina",
-   "options": "Maquinas"
+   "options": "Maquina"
   },
   {
    "fieldname": "nombre_estado",
@@ -503,12 +516,77 @@
    "label": "Nombre del estado",
    "options": "Abierta\nCerrada\nSuspendida",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ianyo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "porcentaje_permitido",
+   "fieldtype": "Percent",
+   "label": "Porcentaje permitido"
+  },
+  {
+   "fieldname": "column_break_2uqj9",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "imprimir",
+   "fieldtype": "Button",
+   "label": "Imprimir"
+  },
+  {
+   "fieldname": "des_imprimir",
+   "fieldtype": "Button",
+   "label": "Imprimir"
+  },
+  {
+   "fieldname": "column_break_zgfpq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fecha_de_vencimiento",
+   "fieldtype": "Data",
+   "label": "Fecha de vencimiento",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cantidad",
+   "fieldtype": "Data",
+   "label": "Cantidad",
+   "read_only": 1
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Area",
+   "options": "Area",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "area.llave",
+   "fieldname": "nombre_area",
+   "fieldtype": "Data",
+   "label": "Nombre Area",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_widwc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "maquina.nombre",
+   "fieldname": "nombre_maquina",
+   "fieldtype": "Data",
+   "label": "Nombre Maquina",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-18 16:32:22.323833",
+ "modified": "2024-02-09 10:03:25.853904",
  "modified_by": "Administrator",
  "module": "eTIBA",
  "name": "Captura de pesos",

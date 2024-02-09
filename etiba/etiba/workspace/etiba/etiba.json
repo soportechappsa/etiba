@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"MVhqloqCqa\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">eTIBA</span>\",\"col\":12}},{\"id\":\"iqGJtp61x2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CORTE\",\"col\":3}},{\"id\":\"CNnhcpEe9h\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"IMPRESION\",\"col\":3}},{\"id\":\"kyGYt8KMuF\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"EXTRUDER\",\"col\":3}},{\"id\":\"bL4G37YVRg\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"LAMINACION\",\"col\":3}},{\"id\":\"6Wj2yZJ0li\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"SLITTER\",\"col\":3}}]",
+ "content": "[{\"id\":\"MVhqloqCqa\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">eTIBA</span>\",\"col\":12}},{\"id\":\"xtdS6Ck3P3\",\"type\":\"card\",\"data\":{\"card_name\":\"B\u00e1scula\",\"col\":4}}]",
  "creation": "2024-01-17 16:09:56.930888",
  "custom_blocks": [],
  "docstatus": 0,
@@ -11,8 +11,27 @@
  "idx": 0,
  "is_hidden": 0,
  "label": "eTIBA",
- "links": [],
- "modified": "2024-01-22 10:47:37.061047",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "B\u00e1scula",
+   "link_count": 1,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Captura de pesos",
+   "link_count": 0,
+   "link_to": "Captura de pesos",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-01-23 12:56:00.948006",
  "modified_by": "Administrator",
  "module": "eTIBA",
  "name": "eTIBA",
@@ -22,48 +41,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 26.0,
- "shortcuts": [
-  {
-   "color": "Green",
-   "doc_view": "List",
-   "label": "CORTE",
-   "link_to": "Captura de pesos",
-   "stats_filter": "{\"idproceso\":[\"=\",\"1\"]}",
-   "type": "DocType"
-  },
-  {
-   "color": "Pink",
-   "doc_view": "List",
-   "label": "IMPRESION",
-   "link_to": "Captura de pesos",
-   "stats_filter": "{\"idproceso\":[\"=\",\"3\"]}",
-   "type": "DocType"
-  },
-  {
-   "color": "Red",
-   "doc_view": "List",
-   "label": "EXTRUDER",
-   "link_to": "Captura de pesos",
-   "stats_filter": "{\"idproceso\":[\"=\",\"2\"]}",
-   "type": "DocType"
-  },
-  {
-   "color": "Blue",
-   "doc_view": "List",
-   "label": "LAMINACION",
-   "link_to": "Captura de pesos",
-   "stats_filter": "{\"idproceso\":[\"=\",\"4\"]}",
-   "type": "DocType"
-  },
-  {
-   "color": "Cyan",
-   "doc_view": "List",
-   "label": "SLITTER",
-   "link_to": "Captura de pesos",
-   "stats_filter": "{\"idproceso\":[\"=\",\"5\"]}",
-   "type": "DocType"
-  }
- ],
+ "sequence_id": 9.0,
+ "shortcuts": [],
  "title": "eTIBA"
 }

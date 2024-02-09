@@ -16,11 +16,11 @@ class Capturadepesos(Document):
 def actualizar_peso_desde_archivo(allow_guest=True):
     try:
         remote_ip = frappe.local.request.remote_addr
+      
 
         # Convertir la dirección IP a cadena y mostrarla
         ip_string = str(remote_ip)
-
-        last_modified_time = os.path.getmtime('eTIBA/public/files/DataRecibida/DatosBascula_'+remote_ip+'.txt')
+        last_modified_time = os.path.getmtime('amd/public/files/DataRecibida/DatosBascula_'+remote_ip+'.txt')
         
         # Verificar si el archivo ha sido modificado desde la última vez
         if hasattr(actualizar_peso_desde_archivo, 'last_modified_time') and \
@@ -31,7 +31,7 @@ def actualizar_peso_desde_archivo(allow_guest=True):
         # Actualizar el atributo last_modified_time
         actualizar_peso_desde_archivo.last_modified_time = last_modified_time
 
-        with open('eTIBA/public/files/DataRecibida/DatosBascula_'+remote_ip+'.txt', 'r') as file:
+        with open('amd/public/files/DataRecibida/DatosBascula_'+remote_ip+'.txt', 'r') as file:
             lines = file.readlines()
             if lines:
                 last_line = lines[-1].strip()
@@ -55,8 +55,9 @@ def actualizar_peso_desde_archivo(allow_guest=True):
 def obtener_ultimo_registro_guardado(allow_guest=True):
     try:
         remote_ip = frappe.local.request.remote_addr
+    
         ip_string = str(remote_ip)
-        with open('eTIBA/public/files/DataRecibida/DatosBascula_'+remote_ip+'.txt', 'r') as file:
+        with open('amd/public/files/DataRecibida//DatosBascula_'+remote_ip+'.txt', 'r') as file:
             last_line = file.read().strip()
             if last_line:
                 return tuple(last_line.split('|')[:2])
@@ -65,17 +66,42 @@ def obtener_ultimo_registro_guardado(allow_guest=True):
     return None
 
 
-import os
 
 @frappe.whitelist(allow_guest=True)
 def escribir_registro_bacula(weight, unidad, bascula_id, date, COM):
     try:
         # Crea el nombre de archivo usando la bascula_id
-        file_path = f'eTIBA/public/files/DataRecibida/DatosBascula_{bascula_id}.txt'
+        file_path = f'amd/public/files/DataRecibida/DatosBascula_{bascula_id}.txt'
         print(f"Intentando escribir en el archivo: {file_path}")
         ipcliente = frappe.local.request_ip
         print(ipcliente)
 
+        # COMIENZA
+        url = 'http://192.168.10.91:8010'
+        api_endpoint = '/api/method/etiba.etiba.doctype.captura_de_pesos.captura_de_pesos.escribir_registro_bacula'
+
+        # Parámetros para tu función
+        params = {
+            "weight": 124443,
+            "bascula_id": "7.35.36",
+            "unidad": 454446,
+            "date": 1,
+            "COM": 1010,
+            "api_key": 'e93a35a3993f9fc',
+            "api_secret": 'cf0b7d2d2dc314b'
+        }
+
+        # Hacer la solicitud POST
+        response = requests.post(url + api_endpoint, json=params)
+
+        # Verificar la respuesta
+        if response.status_code == 200 and response.json().get('message') == True:
+            print("La función fue ejecutada con éxito.")
+        else:
+            print("Hubo un problema al ejecutar la función.")
+            print(response.text)
+
+        # TERMINA
         # Valida si el archivo de texto existe y lo crea si no existe
         if not os.path.exists(file_path):
             print(f"El archivo no existe. Creándolo...")
@@ -113,97 +139,82 @@ def escribir_registro_bacula(weight, unidad, bascula_id, date, COM):
 
 
 @frappe.whitelist(allow_guest=True)
-def obtener_ordenes_sql(doctype, docname):
+def obtener_ordenes_sql(doctype, docname, nombre_area):
+    server, database, username, password, driver = frappe.db.get_value('Credenciales', {'docstatus': 1}, ['server_sql', 'database_sql', 'username_sql', 'password_sql', 'driver_sql'])
+    connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
+    
     try:
-        # Obtener valores del campo 'orden' del documento 'Captura de pesos'
+        connection = pyodbc.connect(connection_string)
+        cursor = connection.cursor()
+
         captura_de_pesos = frappe.get_all('Captura de pesos', fields=['orden'])
-
-        # Obtener los valores del campo 'orden' de todos los registros
         docnums_utilizados = [orden.get('orden') for orden in captura_de_pesos]
+        
+        areas = [area.strip() for area in nombre_area.split(',')]
+        placeholders = ', '.join('?' for _ in areas)
+        
+        # Utilizar la cadena de marcadores de posición en la consulta SQL
+        query = f"SELECT  a.DocNum, b.SeriesName FROM OWOR a JOIN nnm1 b ON a.Series = b.Series WHERE upper(b.SeriesName) IN ({placeholders}) and a.DocNum NOT IN ({','.join(map(str, docnums_utilizados))}) and a.status = 'r'"
+        #query = f"SELECT a.DocNum, b.SeriesName FROM OWOR a JOIN nnm1 b ON a.Series = b.Series"
+        
+        # Ejecutar la consulta SQL con la lista de áreas
+        cursor.execute(query, areas)
+        #cursor.execute(query)
+        rows = cursor.fetchall()
 
-        # Obtener credenciales desde la base de datos
-        credenciales = frappe.db.get_value('Credenciales', {'docstatus': 1}, ['server_sql', 'database_sql', 'username_sql', 'password_sql', 'driver_sql'])
-        server, database, username, password, driver = credenciales
+        # Procesar los resultados
+        result_list = [{
+            "DocNum": row.DocNum,
+            "SeriesName": row.SeriesName
+        } for row in rows]
 
-        # Crear cadena de conexión
-        connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
-
-        # Imprimir cadena de conexión (para propósitos de depuración)
-        print(connection_string)
-
-        # Conectar a la base de datos
-        with pyodbc.connect(connection_string) as connection:
-            # Crear un cursor
-            with connection.cursor() as cursor:
-                # Consulta SQL excluyendo los docnums utilizados
-                if docnums_utilizados:
-                    query = f"SELECT DISTINCT DocNum FROM OWOR WHERE DocNum NOT IN ({','.join(map(str, docnums_utilizados))})"
-                else:
-                    query = "SELECT DISTINCT DocNum FROM OWOR"
-
-                # Ejecutar la consulta SQL
-                cursor.execute(query)
-
-                # Obtener todas las filas
-                rows = cursor.fetchall()
-
-        # Extraer los valores de DocNum de los resultados
-        docnums_disponibles = [row.DocNum for row in rows]
-
-        # Imprimir los DocNums disponibles (para propósitos de depuración)
-        print("disponibles:", docnums_disponibles)
-
-        return {"docnums": docnums_disponibles}
+        return {"docnum": [doc["DocNum"] for doc in result_list]}
 
     except pyodbc.Error as ex:
+        # Manejar errores de conexión o consulta
         frappe.log_error(f"Error en la consulta SQL: {ex}")
-        raise
+        return {"docnum": []}  # Devolver una lista vacía en caso de error
 
     finally:
+        # Cerrar la conexión
         if 'connection' in locals():
             connection.close()
-
 
 
 @frappe.whitelist(allow_guest=True)
 def obtener_encabezado(doctype, docname, orden):
     try:
         # Obtener credenciales desde la base de datos
-        credenciales = frappe.db.get_value('Credenciales', {'docstatus': 1}, ['server_sql', 'database_sql', 'username_sql', 'password_sql', 'driver_sql'])
-        server, database, username, password, driver = credenciales
-
-        # Crear cadena de conexión
+        server, database, username, password, driver = frappe.db.get_value('Credenciales', {'docstatus': 1}, ['server_sql', 'database_sql', 'username_sql', 'password_sql', 'driver_sql'])
         connection_string = f'DRIVER={driver};SERVER={server};DATABASE={database};UID={username};PWD={password}'
-
-        # Imprimir cadena de conexión (para propósitos de depuración)
-        print(connection_string)
 
         # Conectar a la base de datos
         with pyodbc.connect(connection_string) as connection:
             # Crear un cursor
             with connection.cursor() as cursor:
                 # Consulta SQL
-                query = f"SELECT ProdName, ItemCode, CreateDate, CardCode,Uom FROM OWOR where DocNum={orden}"
-
-                # Ejecutar la consulta SQL
-                cursor.execute(query)
+                query = "SELECT a.ProdName, a.ItemCode, a.CreateDate, a.CardCode, a.Uom, a.DueDate, a.PlannedQty, b.CardName, d.BatchNum, e.SeriesName FROM OWOR a LEFT JOIN OCRD b ON a.CardCode = b.CardCode INNER JOIN WOR1 c ON c.DocEntry = a.DocEntry LEFT JOIN IBT1 d ON d.BsDocEntry = a.DocEntry JOIN nnm1 e ON e.Series = a.Series WHERE a.docnum=?"
                 
+                # Ejecutar la consulta SQL con parámetros
+                cursor.execute(query, (orden,))
+
                 # Obtener todas las filas
                 rows = cursor.fetchall()
 
-        # Extraer los valores de DocNum de los resultados
+        # Procesar los resultados
         resultados = [{"ProdName": row.ProdName, "ItemCode": row.ItemCode,
-                       "CreateDate": row.CreateDate, "CardCode": row.CardCode, "Uom": row.Uom} for row in rows]
-
-        return {"resultados": resultados}
+                       "CreateDate": row.CreateDate, "DueDate": row.DueDate, "PlannedQty": row.PlannedQty,
+                       "CardCode": row.CardCode, "Uom": row.Uom, "CardName": row.CardName, 
+                       "BatchNum": row.BatchNum, "SeriesName": row.SeriesName} for row in rows]
+        print('#####################################', resultados)
 
     except pyodbc.Error as ex:
+        # Maneja errores de conexión o consulta
         frappe.log_error(f"Error en la consulta SQL: {ex}")
-        raise
+        resultados = []
 
-    finally:
-        if 'connection' in locals():
-            connection.close()
+    # Retorna todos los resultados después de procesar todas las filas
+    return {"resultados": resultados}
 
 @frappe.whitelist(allow_guest=True)
 def insertar_detalle_eliminado(detalle_eliminado, doc=None):
@@ -264,9 +275,9 @@ def imprimir_etiqueta(numeroorden, idproceso, idimpresion,detalle_insertado,manu
         "idimpresion": idimpresion,  # Usar el valor proporcionado como argumento
         "idordendetalle": detalle_insertado
     }
-
+    print(data)
     if manual == '0':
-
+    
         try:
             # Realizar la solicitud POST al servicio de impresión
             response = requests.post(url_impresion, json=data, timeout=3)

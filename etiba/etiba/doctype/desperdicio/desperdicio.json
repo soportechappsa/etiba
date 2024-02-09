@@ -16,7 +16,9 @@
   "des_peso_neto",
   "uom",
   "desperdicio",
-  "flg"
+  "flg",
+  "impreso",
+  "observaciones"
  ],
  "fields": [
   {
@@ -76,7 +78,6 @@
    "fieldname": "id_operador",
    "fieldtype": "Data",
    "label": "Id",
-   "length": 1,
    "read_only": 1
   },
   {
@@ -90,12 +91,24 @@
    "fieldtype": "Float",
    "label": "Peso Neto",
    "read_only": 1
+  },
+  {
+   "fieldname": "observaciones",
+   "fieldtype": "Data",
+   "label": "Observaciones"
+  },
+  {
+   "default": "0",
+   "fieldname": "impreso",
+   "fieldtype": "Check",
+   "label": "impreso",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-01-05 08:55:15.194824",
+ "modified": "2024-01-25 14:40:13.000503",
  "modified_by": "Administrator",
  "module": "eTIBA",
  "name": "Desperdicio",
@@ -104,6 +117,5 @@
  "permissions": [],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "valida_guardar": 1
+ "states": []
 }

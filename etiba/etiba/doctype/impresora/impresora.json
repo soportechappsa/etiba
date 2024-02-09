@@ -14,7 +14,11 @@
   "fechaalta",
   "idestado",
   "idproceso",
-  "idimpresora"
+  "idimpresora",
+  "plantillazpl",
+  "ancho",
+  "largo",
+  "espacio"
  ],
  "fields": [
   {
@@ -53,11 +57,31 @@
    "fieldname": "idimpresora",
    "fieldtype": "Int",
    "label": "idimpresora"
+  },
+  {
+   "fieldname": "plantillazpl",
+   "fieldtype": "Long Text",
+   "label": "plantillazpl"
+  },
+  {
+   "fieldname": "ancho",
+   "fieldtype": "Int",
+   "label": "ancho(mm)"
+  },
+  {
+   "fieldname": "largo",
+   "fieldtype": "Int",
+   "label": "largo(mm)"
+  },
+  {
+   "fieldname": "espacio",
+   "fieldtype": "Int",
+   "label": "espacio entre textos"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-04 08:47:29.787962",
+ "modified": "2024-02-02 16:21:27.049954",
  "modified_by": "Administrator",
  "module": "eTIBA",
  "name": "impresora",
